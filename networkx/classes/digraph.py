@@ -15,7 +15,6 @@ __author__ = """\n""".join(['Aric Hagberg (hagberg@lanl.gov)',
 
 from networkx.classes.graph import Graph
 from networkx.exception import NetworkXException, NetworkXError
-import networkx.convert as convert
 from copy import deepcopy
 
 class DiGraph(Graph):
@@ -212,9 +211,6 @@ class DiGraph(Graph):
         self.pred = {}  # predecessor
         self.succ = self.adj  # successor
 
-        # attempt to load graph with data
-        if data is not None:
-            convert.from_whatever(data,create_using=self)
         # load graph attributes (must be after convert)
         self.graph.update(attr)
 

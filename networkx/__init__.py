@@ -65,23 +65,12 @@ __license__  = release.license
 
 from exception import  *
 
-from algorithms import *
 from classes import *
-from convert import *
 from drawing import *
-from generators import *
-from linalg import *
-from operators import *
 from readwrite import *
 
 import utils
-from tests.test import run as test
-import algorithms
 import classes
-import convert
 import drawing
-import generators
-import linalg
-import operators
 import readwrite
 
