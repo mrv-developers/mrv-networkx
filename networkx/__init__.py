@@ -67,10 +67,7 @@ from exception import  *
 
 from classes import *
 from drawing import *
-from readwrite import *
 
-import utils
 import classes
 import drawing
-import readwrite
 
