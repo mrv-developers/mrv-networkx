@@ -1,21 +1,5 @@
-"""
-*****
-Pydot
-*****
 
-Import and export NetworkX graphs in Graphviz dot format using pydot.
-
-Either this module or nx_pygraphviz can be used to interface with graphviz.  
-
-See Also
---------
-Pydot: http://www.dkbza.org/pydot.html
-Graphviz:	   http://www.research.att.com/sw/tools/graphviz/
-DOT Language:  http://www.graphviz.org/doc/info/lang.html
-
-
-"""
-__author__ = """Aric Hagberg (hagberg@lanl.gov)"""
+__author__ = "Aric Hagberg (hagberg@lanl.gov)"
 #    Copyright (C) 2004-2008 by 
 #    Aric Hagberg <hagberg@lanl.gov>
 #    Dan Schult <dschult@colgate.edu>
@@ -32,10 +16,7 @@ import networkx
 
 
 def write_dot(G,path):
-    """Write NetworkX graph G to Graphviz dot format on path.
-
-    Path can be a string or a file handle.
-    """
+    
     try:
         import pydot
     except ImportError:
@@ -48,11 +29,7 @@ def write_dot(G,path):
     return
 
 def read_dot(path):
-    """Return a NetworkX Graph or DiGraph from a dot file on path.
-
-    Path can be a string or a file handle.
-
-    """
+    
     try:
         import pydot
     except ImportError:
@@ -66,20 +43,7 @@ def read_dot(path):
 
 
 def from_pydot(P):
-    """Return a NetworkX graph from a Pydot graph.
-
-    Parameters
-    ----------
-    P : Pydot graph
-      A graph created with Pydot
-
-    Examples
-    --------
-    >>> K5=nx.complete_graph(5)
-    >>> A=nx.to_pydot(K5)
-    >>> G=nx.from_pydot(A)
-
-    """
+    
 
     if P.get_strict(None): # pydot bug: get_strict() shouldn't take argument 
         multiedges=False
@@ -134,23 +98,7 @@ def from_pydot(P):
     return N        
 
 def to_pydot(N, strict=True):
-    """Return a pydot graph from a NetworkX graph N.
-
-    Parameters
-    ----------
-    N : NetworkX graph
-      A graph created with NetworkX
-      
-
-    Examples
-    --------
-    >>> K5=nx.complete_graph(5)
-    >>> P=nx.to_pydot(K5)
-
-    Notes
-    -----
-
-    """
+    
     try:
         import pydot
     except ImportError:
@@ -200,49 +148,25 @@ def to_pydot(N, strict=True):
 
 
 def pydot_from_networkx(N):
-	"""Create a Pydot graph from a NetworkX graph."""
+	
         from warnings import warn
         warn('pydot_from_networkx is replaced by to_pydot', DeprecationWarning)
         return to_pydot(N)
 
 def networkx_from_pydot(D, create_using=None):
-	"""Create a NetworkX graph from a Pydot graph."""
+	
         from warnings import warn
         warn('networkx_from_pydot is replaced by from_pydot', 
              DeprecationWarning)
         return from_pydot(D)
 
 def graphviz_layout(G,prog='neato',root=None, **kwds):
-    """Create node positions using Pydot and Graphviz.
-
-    Returns a dictionary of positions keyed by node.
-
-    Examples
-    --------
-    >>> G=nx.complete_graph(4)
-    >>> pos=nx.graphviz_layout(G)
-    >>> pos=nx.graphviz_layout(G,prog='dot')
-
-    Notes
-    -----
-    This is a wrapper for pydot_layout.
-
-    """
+    
     return pydot_layout(G=G,prog=prog,root=root,**kwds)
 
 
 def pydot_layout(G,prog='neato',root=None, **kwds):
-    """Create node positions using Pydot and Graphviz.
-
-    Returns a dictionary of positions keyed by node.
-
-    Examples
-    --------
-    >>> G=nx.complete_graph(4)
-    >>> pos=nx.pydot_layout(G)
-    >>> pos=nx.pydot_layout(G,prog='dot')
     
-    """
     try:
         import pydot
     except ImportError:

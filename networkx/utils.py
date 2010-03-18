@@ -1,18 +1,3 @@
-"""
-*********
-Utilities
-*********
-
-Helpers for NetworkX.
-
-These are not imported into the base networkx namespace but
-can be accessed, for example, as
-
->>> import networkx
->>> networkx.utils.is_string_like('spam')
-True
-
-"""
 __author__ = """Aric Hagberg (hagberg@lanl.gov)\nDan Schult(dschult@colgate.edu)"""
 #    Copyright (C) 2004-2008 by 
 #    Aric Hagberg <hagberg@lanl.gov>
